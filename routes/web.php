@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/custom', function() {
+    $msj = 'This is a custom page.';
+
+    return view('custom', ['msj' => $msj]);
+});
+
+Route::get('test', [App\Http\Controllers\TestController::class, "test"]);
